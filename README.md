@@ -1,7 +1,7 @@
 Boundary Elastic Search
 =======================
 
-Configures an virtual machine with an ElasticSearch instance for testing Boundary Plugin for Elasticsearch
+Configures an virtual machine with an Nginx instance for testing Boundary Plugin for Nginx
 
 Prerequistes
 ------------
@@ -18,7 +18,7 @@ Prior to installation you need to obtain in your Boundary API Token.
 
 1. Clone the GitHub Repository:
 ```bash
-$ git clone https://github.com/jdgwartney/boundary-vagrant-elasticsearch
+$ git clone https://github.com/jdgwartney/boundary-vagrant-nginx
 ```
 
 2. Start the virtual machine using your Boundary API Token:
