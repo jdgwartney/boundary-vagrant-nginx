@@ -10,12 +10,23 @@ node /^ubuntu/ {
     creates => '/vagrant/.locks/update-apt-packages',
   }
 
-  class { 'nginx': 
+  package { 'apache2-utils':
+    ensure => 'installed',
     require => Exec['update-apt-packages']
+  }
+
+  class { 'nginx': 
+    require => Package['apache2-utils']
   }
 
   class { 'boundary':
     token => $boundary_api_token,
+    require => Class['nginx']
+  }
+
+  exec { 'configure-password':
+    command => '/usr/bin/sudo /usr/bin/htpasswd -bc /etc/nginx/.htpasswd boundary onesecond',
+    creates => '/etc/nginx/.htpasswd',
     require => Class['nginx']
   }
 
@@ -40,8 +51,19 @@ node /^centos-7-0/ {
     require => Exec['update-rpm-packages']
   }
 
+  package { 'httpd-tools':
+    ensure => 'installed',
+    require => Package['epel-release']
+  }
+
   class { 'nginx': 
-    require => Exec['update-rpm-packages']
+    require => Package['httpd-tools']
+  }
+
+  exec { 'configure-password':
+    command => '/usr/bin/sudo /usr/bin/htpasswd -bc /etc/nginx/.htpasswd boundary onesecond',
+    creates => '/etc/nginx/.htpasswd',
+    require => Class['nginx']
   }
 
   file { 'boundary-nginx-conf':
@@ -65,8 +87,19 @@ node /^centos/ {
     require => Exec['update-rpm-packages']
   }
 
+  package { 'httpd-tools':
+    ensure => 'installed',
+    require => Package['epel-release']
+  }
+
   class { 'nginx': 
-    require => Exec['update-rpm-packages']
+    require => Package['httpd-tools']
+  }
+
+  exec { 'configure-password':
+    command => '/usr/bin/sudo /usr/bin/htpasswd -bc /etc/nginx/.htpasswd boundary onesecond',
+    creates => '/etc/nginx/.htpasswd',
+    require => Class['nginx']
   }
 
   file { 'boundary-nginx-conf':
