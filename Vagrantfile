@@ -6,12 +6,6 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-# Configure additional CPUs and Memory
-  config.vm.provider "virtualbox" do |v|
-      v.memory = 2048
-      v.cpus = 2
-  end
-
   config.vm.define "centos-6.6", autostart: false do |v|
     v.vm.box = "puppetlabs/centos-6.6-64-puppet"
     v.vm.hostname = "centos-6-6"
@@ -38,9 +32,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell do |shell|
      shell.inline = "puppet module install puppetlabs-stdlib;
                      puppet module install puppetlabs-apt;
-                     puppet module install puppetlabs-java;
-                     puppet module install camptocamp-augeas;
-                     puppet module install elasticsearch-elasticsearch;
+                     puppet module install puppetlabs-concat;
+                     puppet module install jfryman-nginx;
                      puppet module install boundary-boundary;
                      exit 0"
   end
