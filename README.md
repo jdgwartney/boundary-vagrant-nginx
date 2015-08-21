@@ -1,5 +1,5 @@
-Boundary Elastic Search
-=======================
+Boundary Nginx 
+==============
 
 Configures an virtual machine with an Nginx instance for testing Boundary Plugin for Nginx
 
@@ -8,7 +8,7 @@ Prerequistes
 
 - Vagrant 1.72. or later, download [here](https://www.vagrantup.com/downloads.html)
 - Virtual Box 4.3.26 or later, download [here](https://www.virtualbox.org/wiki/Downloads)
-- git 2.3.3 or later
+- git 1.7.x or later
 
 Installation
 ------------
