@@ -10,8 +10,3 @@ set -o vi
 
 # User specific environment and startup programs
 
-ELASTICSEARCH_INSTALL=/usr/share/elasticsearch
-
-PATH=$PATH:$HOME/bin:$ELASTICSEARCH_INSTALL/bin
-
-export PATH
