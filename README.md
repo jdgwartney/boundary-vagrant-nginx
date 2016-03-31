@@ -1,7 +1,7 @@
-Boundary Nginx 
-==============
+Vagrant Environment for Nginx Meter Plugin Development
+======================================================
 
-Configures an virtual machine with an Nginx instance for testing Boundary Plugin for Nginx
+Configures an virtual machine with an Nginx instance for testing TrueSight Pulse Meter Plugin for Nginx
 
 Prerequistes
 ------------
@@ -13,17 +13,17 @@ Prerequistes
 Installation
 ------------
 
-Prior to installation you need to obtain in your Boundary API Token.
+Prior to installation you need to obtain in your TrueSight Pulse API Token.
 
 
 1. Clone the GitHub Repository:
 ```bash
-$ git clone https://github.com/jdgwartney/boundary-vagrant-nginx
+$ git clone https://github.com/boundary/vagrant-nginx
 ```
 
-2. Start the virtual machine using your Boundary API Token:
+2. Start the virtual machine using your TrueSight Pulse API Token:
 ```bash
-$ BOUNDARY_API_TOKEN=<Boundary API Token> vagrant up <virtual machine name>
+$ API_TOKEN=<TrueSight Pulse API Token> vagrant up <virtual machine name>
 ```
 NOTE: Run `vagrant status` to list the name of the virtual machines.
 
